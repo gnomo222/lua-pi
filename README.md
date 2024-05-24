@@ -1,7 +1,7 @@
 # PI!  
  > *Now in a memorization console game (with up to 10000 digits!)*
  > 
- > (Also, there's only a Windows version as of right now because I'm already tired)
+ > (Also, there's only a Windows version as of right now 🤷)
 
 You can build yourself a Linux version, idk (I didn't test to see if it works on it).
 
