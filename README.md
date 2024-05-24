@@ -3,7 +3,7 @@
  > 
  > (Also, there's only a Windows version as of right now because I'm already tired)
 
-You can build yourself a linux version, idk (I didn't test to see if it works on linux).
+You can build yourself a Linux version, idk (I didn't test to see if it works on it).
 
 From the pi_libraries directory, simply execute `make all` and you're good to go.
 
