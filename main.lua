@@ -28,7 +28,7 @@ if supportsColor then
         write("\27[H\27[J\27[H")
         flush()
     end
-    typeFmt = 'Type \27[4;31m%d\27[0;30m\27[107m digits of π: '
+    typeFmt = 'Type \27[4;31m%d\27[0;30m\27[107m digits of pi: '
 else 
     cls = function() system("cls") end
     typeText = 'Type %d digits of pi: '
