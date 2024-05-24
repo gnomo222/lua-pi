@@ -1,10 +1,9 @@
 #ifdef _WIN64
     #include <wchar.h>
     #include <windows.h>
-    #define ENABLE_VIRTUAL_TERMINAL_PROCESSING 0x0004
 #endif
-#include "lua/lauxlib.h"
-#include "lua/lapi.h"
+#include "lauxlib.h"
+#include "lapi.h"
 
 int luaopen_supportsVTProcessing (lua_State *L)
 {

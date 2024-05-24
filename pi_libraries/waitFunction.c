@@ -1,6 +1,6 @@
 #include <stdlib.h>
-#include "lua/lauxlib.h"
-#include "lua/lapi.h"
+#include "lauxlib.h"
+#include "lapi.h"
 
 #ifdef _WIN32
     #include <windows.h>

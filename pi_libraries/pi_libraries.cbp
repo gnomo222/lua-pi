@@ -8,33 +8,44 @@
 		<Build>
 			<Target title="supportsVTProcessing">
 				<Option output="bin/supportsVTProcessing" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/" />
+				<Option object_output="obj" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-O2" />
+					<Add option="-DENABLE_VIRTUAL_TERMINAL_PROCESSING=0x0004" />
 				</Compiler>
-				<Linker>
-					<Add option="-s" />
-				</Linker>
 			</Target>
 			<Target title="waitFunction">
 				<Option output="bin/waitFunction" imp_lib="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).a" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).def" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="getPi">
+				<Option output="bin/getPi" imp_lib="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).a" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).def" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj" />
 				<Option type="3" />
 				<Option compiler="gcc" />
 			</Target>
 		</Build>
+		<VirtualTargets>
+			<Add alias="all" targets="supportsVTProcessing;waitFunction;getPi;" />
+		</VirtualTargets>
 		<Compiler>
 			<Add option="-fomit-frame-pointer" />
 			<Add option="-fexpensive-optimizations" />
 			<Add option="-Os" />
-			<Add option="-Wall" />
+			<Add option="-std=c17" />
+			<Add directory="../../lua-5.4.6/src" />
 		</Compiler>
 		<Linker>
 			<Add option="-s" />
 			<Add library="./lua54.lib" />
-			<Add directory="./lua" />
 		</Linker>
+		<Unit filename="getPi.c">
+			<Option compilerVar="CC" />
+			<Option target="getPi" />
+		</Unit>
 		<Unit filename="supportsVTProcessing.c">
 			<Option compilerVar="CC" />
 			<Option target="supportsVTProcessing" />
