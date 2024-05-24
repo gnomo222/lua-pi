@@ -5,5 +5,4 @@
 
 You can build yourself a linux version, idk (I didn't test to see if it works on linux).
 
-Just make lua/Makefile and compile the .c files inside pi_libraries into DLLs.  
-Place the lua executable and lua54.dll you get from the Makefile inside the main folder, and the compiled DLLs inside the pi_libraries/bin folder (I think. [Idk, I don't use linux]).
+Just compile the .c files inside pi_libraries into DLLs and place them inside the pi_libraries/bin folder, then just run main.lua and it should work.
