@@ -1,121 +1,107 @@
-package.path = sys.currentdir .. "\\?.lua"
-package.cpath = sys.currentdir .. "\\?.dll"
+package.cpath="./pi_libraries/bin/?.dll;"
 
-function os.capture(cmd, raw)
-    local handle = assert(io.popen(cmd, 'r'))
-    local output = assert(handle:read('*a'))
-    handle:close()
-    if raw then return output end
-    output = string.gsub(string.gsub(string.gsub(output, '^%s+', ''), '%s+$',''), '[\n\r]+',' ')
-    return output
+local wait = require("waitFunction")
+local supportsColor = require("supportsVTProcessing")
+local pi = require("getPi")
+
+local package = package
+local system = os.execute
+local write = io.write
+local read = io.read
+local flush = io.flush
+local string = string
+
+local function printf(fmt, ...)
+    write(fmt:format(...))
+    flush()
 end
 
-local osver = {os.capture("ver", true):gmatch("(%d%d).%d.(%d%d%d%d%d)")()}
-osver[1], osver[2] = tonumber(osver[1]), tonumber(osver[2])
-local colors = (osver[1] == 10 and osver[2] >= 16257) or osver[1] > 10
-
-print(colors)
-
-if colors then os.execute 'color F0' end
-
-local cmd = os.execute
-local socket = require 'socket.core'
-local cls = function() 
-    os.execute('cls')
+local function char(str, index)
+    return str:sub(index, index)
 end
 
-local file = sys.File("pi"):open("read", "utf8")
+local cls, typeFmt
 
-local pi, score = file:read():gmatch("(%g+)%s(%d+)")()
-file:close()
-
---[[ local function redden(toCompare, compareTo)
-    local text = ""
-    local actually2C = string.gsub(toCompare, "[., ]*", "~")
-    for i=1, string.len(toCompare) do
-        local char = string.sub(actually2C, i, i)
-        if not (char == "~") and (not char == string.sub(compareTo, i, i)) then
-            text = text .. '\27[1m\27[31m'.. char ..'\27[47m30m'
-        elseif char == "~" then
-            text = text .. string.sub(toCompare, i, i)
-        else
-            text = text .. char
-        end
+if supportsColor then 
+    system 'color F0' 
+    cls = function()
+        write("\27[H\27[J\27[H")
+        flush()
     end
-    return text
-end ]]
+    typeFmt = 'Type \27[4;31m%d\27[0;30m\27[107m digits of π: '
+else 
+    cls = function() system("cls") end
+    typeText = 'Type %d digits of pi: '
+end
 
-local function printchars(text)
-    local len = string.len(text)
 
-    local j
-    local n = 25
+local saveFile = io.open("save")
 
-    local function getSleepTime(i)
-        local increment = 0.008
-        local n_speed = 0.16
-        local fast_speed = 0.032
+local score = 4
+if saveFile then
+    local tempText
+    tempNum = tonumber(saveFile:read("*a"))
+    if tempNum == nil or tempNum == 0 then score = 4
+    else score = tempNum+2 end
+end
 
-        if (len-i) > n then
-            return fast_speed
-        end
-        if not j then
-            j = n_speed/fast_speed
-        end
-        if j < (n_speed/increment) then
-            j=j+1
-            return j*increment
-        end
-        return n_speed
+local truncateAt = 25
+local goFastAbove = 8
+local defaultWaitTime = 1000/5
+
+local function getWaitTime(distance)
+    if distance>goFastAbove then
+        return defaultWaitTime/6
     end
+    return defaultWaitTime
+end
 
-    for i=1, string.len(text) do
-        if i>n then 
+local function printchars()
+    if score-truncateAt>0 then goto __GREATER__ end
+    for i=1, score do
+        write(char(pi, i))
+        wait(getWaitTime(score-i))
+        flush()
+    end
+    goto __END__
+    ::__GREATER__::
+    for i=1, score do
+        if i>truncateAt then
             cls()
-            io.write(string.sub(pi, i-25, i-1))
+            write(pi:sub(i-truncateAt, i-1))
         end
-        io.write(string.sub(pi, i,i))
-
-        socket.sleep(getSleepTime(i))
+        write(char(pi, i))
+        wait(getWaitTime(score-i))
+        flush()
     end
+    ::__END__::
+    wait(defaultWaitTime*2.5)
 end
 
 local function defaultize(str)
-    return string.gsub(str, "[ ,.]*", "")
+    return str:gsub("[^%d]", "")
 end
 
-cls()
 while true do
-    local _p = string.sub(pi, 1, score)
-
-    printchars(_p)
-    socket.sleep(0.32)
     cls()
-
-    local score_printable = score
-    if colors then
-        if (score_printable)%10 == 0 then
-            score_printable = "\27[4;94m"..score
-        end
-        io.write('Type \27[4;30m' .. score_printable .. '\27[0;30m\27[107m digits of π: ')
-    else
-        io.write('Type ' .. score_printable .. ' digits of pi: ')
+    local piSubstring = pi:sub(1, score)
+    printchars()
+    cls()
+    printf(typeFmt, score)
+    local input
+    while (input == "" or input == nil) do input=io.read() end
+    if input == "exit" then
+        if colors then system 'color 07' end
+        goto EOF
     end
-
-    local input = io.read()
-    if input == 'exit' then
-        if colors then os.execute 'color 07' end
-        os.exit()
-    end
-    if defaultize(input):sub(1, score-1) == defaultize(_p) then
+    if defaultize(input):sub(1, score-1) == defaultize(piSubstring) then
         score = score+1
-    else
-        score = math.max(score-1, 4)
-    end
-    file:open("write")
-    file:write(pi .. "\n" .. score)
-    file:flush()
-    file:close()
-
-    cls()
+    elseif score>4 then score=score-1 end
+    saveFile = io.open("save", "w+")
+    saveFile:write(score-2)
+    saveFile:flush()
 end
+
+::EOF::
+saveFile:write(score-2)
+saveFile:close()

@@ -1,0 +1,705 @@
+# depslib dependency file v1.0
+1716416281 source:c:\users\redseek\desktop\c\pi libraries\main.c
+	"lua/lauxlib.h"
+	"lua/lapi.h"
+
+1683057748 c:\users\redseek\desktop\c\pi libraries\lua\lauxlib.h
+	<stddef.h>
+	<stdio.h>
+	"luaconf.h"
+	"lua.h"
+	<assert.h>
+
+1683057750 c:\users\redseek\desktop\c\pi libraries\lua\luaconf.h
+	<limits.h>
+	<stddef.h>
+	<stdint.h>
+	<assert.h>
+
+1683057750 c:\users\redseek\desktop\c\pi libraries\lua\lua.h
+	<stdarg.h>
+	<stddef.h>
+	"luaconf.h"
+
+1683057748 c:\users\redseek\desktop\c\pi libraries\lua\lapi.h
+	"llimits.h"
+	"lstate.h"
+
+1683057749 c:\users\redseek\desktop\c\pi libraries\lua\llimits.h
+	<limits.h>
+	<stddef.h>
+	"lua.h"
+	<stdint.h>
+	<assert.h>
+
+1683057750 c:\users\redseek\desktop\c\pi libraries\lua\lstate.h
+	"lua.h"
+	"lobject.h"
+	"ltm.h"
+	"lzio.h"
+	<signal.h>
+
+1683057749 c:\users\redseek\desktop\c\pi libraries\lua\lobject.h
+	<stdarg.h>
+	"llimits.h"
+	"lua.h"
+
+1683057750 c:\users\redseek\desktop\c\pi libraries\lua\ltm.h
+	"lobject.h"
+	"lstate.h"
+
+1683057750 c:\users\redseek\desktop\c\pi libraries\lua\lzio.h
+	"lua.h"
+	"lmem.h"
+
+1683057749 c:\users\redseek\desktop\c\pi libraries\lua\lmem.h
+	<stddef.h>
+	"llimits.h"
+	"lua.h"
+
+1683057750 c:\users\redseek\desktop\c\pi libraries\lua\lualib.h
+	"lua.h"
+
+1683057748 source:c:\users\redseek\desktop\c\pi libraries\lua\lapi.c
+	"lprefix.h"
+	<limits.h>
+	<stdarg.h>
+	<string.h>
+	"lua.h"
+	"lapi.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lundump.h"
+	"lvm.h"
+
+1683057750 c:\users\redseek\desktop\c\pi libraries\lua\lprefix.h
+
+1683057749 c:\users\redseek\desktop\c\pi libraries\lua\ldebug.h
+	"lstate.h"
+
+1683057749 c:\users\redseek\desktop\c\pi libraries\lua\ldo.h
+	"llimits.h"
+	"lobject.h"
+	"lstate.h"
+	"lzio.h"
+
+1683057749 c:\users\redseek\desktop\c\pi libraries\lua\lfunc.h
+	"lobject.h"
+
+1683057749 c:\users\redseek\desktop\c\pi libraries\lua\lgc.h
+	"lobject.h"
+	"lstate.h"
+
+1683057750 c:\users\redseek\desktop\c\pi libraries\lua\lstring.h
+	"lgc.h"
+	"lobject.h"
+	"lstate.h"
+
+1683057750 c:\users\redseek\desktop\c\pi libraries\lua\ltable.h
+	"lobject.h"
+
+1683057750 c:\users\redseek\desktop\c\pi libraries\lua\lundump.h
+	"llimits.h"
+	"lobject.h"
+	"lzio.h"
+
+1683057750 c:\users\redseek\desktop\c\pi libraries\lua\lvm.h
+	"ldo.h"
+	"lobject.h"
+	"ltm.h"
+
+1683057748 source:c:\users\redseek\desktop\c\pi libraries\lua\lauxlib.c
+	"lprefix.h"
+	<errno.h>
+	<stdarg.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	<sys/wait.h>
+
+1683057748 source:c:\users\redseek\desktop\c\pi libraries\lua\lbaselib.c
+	"lprefix.h"
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1683057748 source:c:\users\redseek\desktop\c\pi libraries\lua\lcode.c
+	"lprefix.h"
+	<float.h>
+	<limits.h>
+	<math.h>
+	<stdlib.h>
+	"lua.h"
+	"lcode.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"llex.h"
+	"lmem.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+	"lstring.h"
+	"ltable.h"
+	"lvm.h"
+
+1683057749 c:\users\redseek\desktop\c\pi libraries\lua\lcode.h
+	"llex.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+
+1683057749 c:\users\redseek\desktop\c\pi libraries\lua\llex.h
+	<limits.h>
+	"lobject.h"
+	"lzio.h"
+
+1683057749 c:\users\redseek\desktop\c\pi libraries\lua\lopcodes.h
+	"llimits.h"
+
+1683057750 c:\users\redseek\desktop\c\pi libraries\lua\lparser.h
+	"llimits.h"
+	"lobject.h"
+	"lzio.h"
+
+1683057749 source:c:\users\redseek\desktop\c\pi libraries\lua\lcorolib.c
+	"lprefix.h"
+	<stdlib.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1683057749 source:c:\users\redseek\desktop\c\pi libraries\lua\lctype.c
+	"lprefix.h"
+	"lctype.h"
+	<limits.h>
+
+1683057749 c:\users\redseek\desktop\c\pi libraries\lua\lctype.h
+	"lua.h"
+	<limits.h>
+	"llimits.h"
+	<ctype.h>
+
+1683057749 source:c:\users\redseek\desktop\c\pi libraries\lua\ldblib.c
+	"lprefix.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1683057749 source:c:\users\redseek\desktop\c\pi libraries\lua\ldebug.c
+	"lprefix.h"
+	<stdarg.h>
+	<stddef.h>
+	<string.h>
+	"lua.h"
+	"lapi.h"
+	"lcode.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lvm.h"
+
+1683057749 source:c:\users\redseek\desktop\c\pi libraries\lua\ldo.c
+	"lprefix.h"
+	<setjmp.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lapi.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lundump.h"
+	"lvm.h"
+	"lzio.h"
+
+1683057749 source:c:\users\redseek\desktop\c\pi libraries\lua\ldump.c
+	"lprefix.h"
+	<limits.h>
+	<stddef.h>
+	"lua.h"
+	"lobject.h"
+	"lstate.h"
+	"lundump.h"
+
+1683057749 source:c:\users\redseek\desktop\c\pi libraries\lua\lfunc.c
+	"lprefix.h"
+	<stddef.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+
+1683057749 source:c:\users\redseek\desktop\c\pi libraries\lua\lgc.c
+	"lprefix.h"
+	<stdio.h>
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+
+1683057749 source:c:\users\redseek\desktop\c\pi libraries\lua\linit.c
+	"lprefix.h"
+	<stddef.h>
+	"lua.h"
+	"lualib.h"
+	"lauxlib.h"
+
+1683057749 source:c:\users\redseek\desktop\c\pi libraries\lua\liolib.c
+	"lprefix.h"
+	<ctype.h>
+	<errno.h>
+	<locale.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<sys/types.h>
+
+1683057749 source:c:\users\redseek\desktop\c\pi libraries\lua\llex.c
+	"lprefix.h"
+	<locale.h>
+	<string.h>
+	"lua.h"
+	"lctype.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"llex.h"
+	"lobject.h"
+	"lparser.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"lzio.h"
+
+1683057749 source:c:\users\redseek\desktop\c\pi libraries\lua\lmathlib.c
+	"lprefix.h"
+	<float.h>
+	<limits.h>
+	<math.h>
+	<stdlib.h>
+	<time.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1683057749 source:c:\users\redseek\desktop\c\pi libraries\lua\lmem.c
+	"lprefix.h"
+	<stddef.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+
+1683057749 source:c:\users\redseek\desktop\c\pi libraries\lua\loadlib.c
+	"lprefix.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<dlfcn.h>
+	<windows.h>
+
+1683057749 source:c:\users\redseek\desktop\c\pi libraries\lua\lobject.c
+	"lprefix.h"
+	<locale.h>
+	<math.h>
+	<stdarg.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lctype.h"
+	"ldebug.h"
+	"ldo.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"lvm.h"
+
+1683057749 source:c:\users\redseek\desktop\c\pi libraries\lua\lopcodes.c
+	"lprefix.h"
+	"lopcodes.h"
+
+1683057749 source:c:\users\redseek\desktop\c\pi libraries\lua\loslib.c
+	"lprefix.h"
+	<errno.h>
+	<locale.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<unistd.h>
+
+1683057750 source:c:\users\redseek\desktop\c\pi libraries\lua\lparser.c
+	"lprefix.h"
+	<limits.h>
+	<string.h>
+	"lua.h"
+	"lcode.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"llex.h"
+	"lmem.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lparser.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+
+1683057750 source:c:\users\redseek\desktop\c\pi libraries\lua\lstate.c
+	"lprefix.h"
+	<stddef.h>
+	<string.h>
+	"lua.h"
+	"lapi.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"llex.h"
+	"lmem.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	<time.h>
+
+1683057750 source:c:\users\redseek\desktop\c\pi libraries\lua\lstring.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+
+1683057750 source:c:\users\redseek\desktop\c\pi libraries\lua\lstrlib.c
+	"lprefix.h"
+	<ctype.h>
+	<float.h>
+	<limits.h>
+	<locale.h>
+	<math.h>
+	<stddef.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1683057750 source:c:\users\redseek\desktop\c\pi libraries\lua\ltable.c
+	"lprefix.h"
+	<math.h>
+	<limits.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"lvm.h"
+
+1683057750 source:c:\users\redseek\desktop\c\pi libraries\lua\ltablib.c
+	"lprefix.h"
+	<limits.h>
+	<stddef.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<time.h>
+
+1683057750 source:c:\users\redseek\desktop\c\pi libraries\lua\ltm.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lgc.h"
+	"lobject.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lvm.h"
+
+1711824277 source:c:\users\redseek\desktop\c\pi libraries\lua\lua.c
+	"lprefix.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<signal.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+	<unistd.h>
+	<io.h>
+	<windows.h>
+	<readline/readline.h>
+	<readline/history.h>
+
+1711824058 source:c:\users\redseek\desktop\c\pi libraries\lua\luac.c
+	"lprefix.h"
+	<ctype.h>
+	<errno.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"ldebug.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lopnames.h"
+	"lstate.h"
+	"lundump.h"
+
+1683057749 c:\users\redseek\desktop\c\pi libraries\lua\lopnames.h
+	<stddef.h>
+
+1683057750 source:c:\users\redseek\desktop\c\pi libraries\lua\lundump.c
+	"lprefix.h"
+	<limits.h>
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lmem.h"
+	"lobject.h"
+	"lstring.h"
+	"lundump.h"
+	"lzio.h"
+
+1683057750 source:c:\users\redseek\desktop\c\pi libraries\lua\lutf8lib.c
+	"lprefix.h"
+	<assert.h>
+	<limits.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"lauxlib.h"
+	"lualib.h"
+
+1683057750 source:c:\users\redseek\desktop\c\pi libraries\lua\lvm.c
+	"lprefix.h"
+	<float.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lua.h"
+	"ldebug.h"
+	"ldo.h"
+	"lfunc.h"
+	"lgc.h"
+	"lobject.h"
+	"lopcodes.h"
+	"lstate.h"
+	"lstring.h"
+	"ltable.h"
+	"ltm.h"
+	"lvm.h"
+	"ljumptab.h"
+
+1683057749 c:\users\redseek\desktop\c\pi libraries\lua\ljumptab.h
+
+1683057750 source:c:\users\redseek\desktop\c\pi libraries\lua\lzio.c
+	"lprefix.h"
+	<string.h>
+	"lua.h"
+	"llimits.h"
+	"lmem.h"
+	"lstate.h"
+	"lzio.h"
+
+1716499052 source:c:\users\redseek\desktop\c\pi_libraries\waitfunction.c
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	<inttypes.h>
+	"lua/lauxlib.h"
+	"lua/lapi.h"
+	<windows.h>
+	<time.h>
+
+1683057748 c:\users\redseek\desktop\c\pi_libraries\lua\lauxlib.h
+	<stddef.h>
+	<stdio.h>
+	"luaconf.h"
+	"lua.h"
+	<assert.h>
+
+1683057750 c:\users\redseek\desktop\c\pi_libraries\lua\luaconf.h
+	<limits.h>
+	<stddef.h>
+	<stdint.h>
+	<assert.h>
+
+1683057750 c:\users\redseek\desktop\c\pi_libraries\lua\lua.h
+	<stdarg.h>
+	<stddef.h>
+	"luaconf.h"
+
+1683057748 c:\users\redseek\desktop\c\pi_libraries\lua\lapi.h
+	"llimits.h"
+	"lstate.h"
+
+1683057749 c:\users\redseek\desktop\c\pi_libraries\lua\llimits.h
+	<limits.h>
+	<stddef.h>
+	"lua.h"
+	<stdint.h>
+	<assert.h>
+
+1683057750 c:\users\redseek\desktop\c\pi_libraries\lua\lstate.h
+	"lua.h"
+	"lobject.h"
+	"ltm.h"
+	"lzio.h"
+	<signal.h>
+
+1683057749 c:\users\redseek\desktop\c\pi_libraries\lua\lobject.h
+	<stdarg.h>
+	"llimits.h"
+	"lua.h"
+
+1683057750 c:\users\redseek\desktop\c\pi_libraries\lua\ltm.h
+	"lobject.h"
+	"lstate.h"
+
+1683057750 c:\users\redseek\desktop\c\pi_libraries\lua\lzio.h
+	"lua.h"
+	"lmem.h"
+
+1683057749 c:\users\redseek\desktop\c\pi_libraries\lua\lmem.h
+	<stddef.h>
+	"llimits.h"
+	"lua.h"
+
+1716502311 source:c:\users\redseek\desktop\lua\pi3\pi_libraries\waitfunction.c
+	<stdlib.h>
+	"lua/lauxlib.h"
+	"lua/lapi.h"
+	<windows.h>
+	<time.h>
+
+1683057748 c:\users\redseek\desktop\lua\pi3\pi_libraries\lua\lauxlib.h
+	<stddef.h>
+	<stdio.h>
+	"luaconf.h"
+	"lua.h"
+	<assert.h>
+
+1683057750 c:\users\redseek\desktop\lua\pi3\pi_libraries\lua\luaconf.h
+	<limits.h>
+	<stddef.h>
+	<stdint.h>
+	<assert.h>
+
+1683057750 c:\users\redseek\desktop\lua\pi3\pi_libraries\lua\lua.h
+	<stdarg.h>
+	<stddef.h>
+	"luaconf.h"
+
+1683057748 c:\users\redseek\desktop\lua\pi3\pi_libraries\lua\lapi.h
+	"llimits.h"
+	"lstate.h"
+
+1683057749 c:\users\redseek\desktop\lua\pi3\pi_libraries\lua\llimits.h
+	<limits.h>
+	<stddef.h>
+	"lua.h"
+	<stdint.h>
+	<assert.h>
+
+1683057750 c:\users\redseek\desktop\lua\pi3\pi_libraries\lua\lstate.h
+	"lua.h"
+	"lobject.h"
+	"ltm.h"
+	"lzio.h"
+	<signal.h>
+
+1683057749 c:\users\redseek\desktop\lua\pi3\pi_libraries\lua\lobject.h
+	<stdarg.h>
+	"llimits.h"
+	"lua.h"
+
+1683057750 c:\users\redseek\desktop\lua\pi3\pi_libraries\lua\ltm.h
+	"lobject.h"
+	"lstate.h"
+
+1683057750 c:\users\redseek\desktop\lua\pi3\pi_libraries\lua\lzio.h
+	"lua.h"
+	"lmem.h"
+
+1683057749 c:\users\redseek\desktop\lua\pi3\pi_libraries\lua\lmem.h
+	<stddef.h>
+	"llimits.h"
+	"lua.h"
+
