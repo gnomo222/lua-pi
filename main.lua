@@ -87,7 +87,7 @@ while true do
     local piSubstring = pi:sub(1, score)
     printchars()
     cls()
-    printf(typeFmt, score)
+    printf(typeFmt, score-2)
     local input
     while (input == "" or input == nil) do input=io.read() end
     if input == "exit" then
