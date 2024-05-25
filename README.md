@@ -5,6 +5,8 @@
 
 You can build yourself a Linux version, idk (I didn't test to see if the game works on it).
 
+### How to build?
+
 Inside `pi_libraries/Makefile`, change the `LUASRCDIR` variable to wherever the Lua src files are on your computer.  
 Then, from `pi_libraries`, execute `make all` and you're good to go.
 
