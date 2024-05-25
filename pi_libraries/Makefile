@@ -5,25 +5,25 @@ LUALIB = ./lua54.lib
 # Put your own lua src directory here
 LUASRCDIR = ../../lua-5.4.6/src
 
-OUTDIR = bin/
-OBJDIR = obj/
+OUTDIR = bin
+OBJDIR = obj
 
 CFLAGS = -fomit-frame-pointer -fexpensive-optimizations -std=c17 -Os -I${LUASRCDIR} -c
 OFLAGS = -shared -s
 
-OBJwaitFunction = ${OBJDIR}waitFunction.o
-OBJgetPi = ${OBJDIR}getPi.o
-OBJsupportsVTProcessing = ${OBJDIR}supportsVTProcessing.o
+OBJwaitFunction = ${OBJDIR}/waitFunction.o
+OBJgetPi = ${OBJDIR}/getPi.o
+OBJsupportsVTProcessing = ${OBJDIR}/supportsVTProcessing.o
 
-all: ${OUTDIR}waitFunction.dll ${OUTDIR}getPi.dll ${OUTDIR}supportsVTProcessing.dll
+all: ${OUTDIR} ${OBJDIR} ${OUTDIR}/waitFunction.dll ${OUTDIR}/getPi.dll ${OUTDIR}/supportsVTProcessing.dll
 
-${OUTDIR}waitFunction.dll: ${OBJwaitFunction} ${OUTDIR}
+${OUTDIR}/waitFunction.dll: ${OBJwaitFunction} ${OUTDIR}
 	${CC} ${OFLAGS} $< -o $@ ${LUALIB}
 
-${OUTDIR}getPi.dll: ${OBJgetPi} ${OUTDIR}
+${OUTDIR}/getPi.dll: ${OBJgetPi} ${OUTDIR}
 	${CC} ${OFLAGS} $< -o $@ ${LUALIB}
 
-${OUTDIR}supportsVTProcessing.dll: ${OBJsupportsVTProcessing} ${OUTDIR}
+${OUTDIR}/supportsVTProcessing.dll: ${OBJsupportsVTProcessing} ${OUTDIR}
 	${CC} ${OFLAGS} $< -o $@ ${LUALIB}
 
 ${OBJwaitFunction}: waitFunction.c ${OBJDIR}
