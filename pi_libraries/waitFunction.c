@@ -2,16 +2,19 @@
 #include "lauxlib.h"
 #include "lapi.h"
 
-#ifdef _WIN32
+#if _WIN32
     #include <windows.h>
-#else
+#elif __linux__
     #include <time.h>
+    int nanosleep(const struct timespec *req, struct timespec *rem);
+#else
+    #error "Unsupported OS"
 #endif
 
 static int wait(lua_State *L)
 {
     int ms = luaL_checknumber(L, 1);
-    #ifdef _WIN32
+    #if _WIN32
         Sleep(ms);
     #else
         struct timespec ts;

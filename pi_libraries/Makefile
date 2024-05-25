@@ -1,14 +1,21 @@
 CC = gcc
-# I'll be so kind as to include the damnable lua library
-# alongside the source code
-LUALIB = ./lua54.lib
+
 # Put your own lua src directory here
 LUASRCDIR = ../../lua-5.4.6/src
+
+MKDIR = mkdir
+
+define RM
+rm -f ${OBJDIR}*.o ${OUTDIR}*.dll
+# If you're on Windows, instead use
+# del /q ${OBJDIR}\*.o
+# del /q ${OUTDIR}\*.dll
+endef
 
 OUTDIR = bin
 OBJDIR = obj
 
-CFLAGS = -fomit-frame-pointer -fexpensive-optimizations -std=c17 -Os -I${LUASRCDIR} -c
+CFLAGS = -std=c17 -Wall -Wextra -Os -I${LUASRCDIR} -c
 OFLAGS = -shared -s
 
 OBJwaitFunction = ${OBJDIR}/waitFunction.o
@@ -18,13 +25,13 @@ OBJsupportsVTProcessing = ${OBJDIR}/supportsVTProcessing.o
 all: ${OUTDIR} ${OBJDIR} ${OUTDIR}/waitFunction.dll ${OUTDIR}/getPi.dll ${OUTDIR}/supportsVTProcessing.dll
 
 ${OUTDIR}/waitFunction.dll: ${OBJwaitFunction} ${OUTDIR}
-	${CC} ${OFLAGS} $< -o $@ ${LUALIB}
+	${CC} ${OFLAGS} $< -o $@
 
 ${OUTDIR}/getPi.dll: ${OBJgetPi} ${OUTDIR}
-	${CC} ${OFLAGS} $< -o $@ ${LUALIB}
+	${CC} ${OFLAGS} $< -o $@ 
 
 ${OUTDIR}/supportsVTProcessing.dll: ${OBJsupportsVTProcessing} ${OUTDIR}
-	${CC} ${OFLAGS} $< -o $@ ${LUALIB}
+	${CC} ${OFLAGS} $< -o $@ 
 
 ${OBJwaitFunction}: waitFunction.c ${OBJDIR}
 	${CC} ${CFLAGS} $< -o $@
