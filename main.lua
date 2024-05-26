@@ -1,9 +1,12 @@
-package.cpath="./pi_libraries/bin/?.dll;"
+local bindir = "./pi_libraries/bin"
+package.cpath= bindir .. "/?.dll;"
 
-local wait = require("waitFunction")
-local supportsColor = require("supportsVTProcessing")
-local pi = require("getPi")
+local libpath = bindir .. '/libraries.dll'
+local waitFunction = package.loadlib(libpath, "waitFunction"))
+local supportsVTProcessing = package.loadlib(libpath, "supportsVTProcessing"))
+local getPi = package.loadlib(libpath, "getPi"))
 
+os.exit()
 local package = package
 local system = os.execute
 local w = io.write
