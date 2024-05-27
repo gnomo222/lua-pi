@@ -3,9 +3,6 @@
 
 ### How to build?
 
-Inside `pi_libraries/Makefile`, change the `LUASRCDIR` variable to wherever the Lua src files are on your computer.  
-If you're building from Windows, change the RM variable too.  
-Then, from `pi_libraries`, execute `make all` and you're good to go.
-
-You can also use Code::Blocks to compile everything (Idk why'd you do this, tho).  
-The .cbp file is included. So, just select the "all" target and build.
+Inside `Makefile`, change the `LUASRCDIR` variable to wherever the Lua src files are on your computer and the `LIBLUA` variable to the name of your lua library (liblua or lua54)  
+Configure the `RM` and `UPX` variables as well.
+Then, execute `make all` and you're good to go.
