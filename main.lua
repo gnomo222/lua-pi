@@ -1,4 +1,4 @@
-local BIN = "./bin"
+local BIN = "."
 package.cpath= BIN .. "/?.dll;"
 
 local LIB = BIN .. '/lib.dll'

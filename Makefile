@@ -1,28 +1,30 @@
 CC = gcc
 
 # Put your own lua src directory and lib path here
-LUASRCDIR = C:/Users/Redseek/Desktop/c/lua/lua
-LIBLUA = lua54
+LUASRCDIR = #../lua-5.4.6/src
+LIBLUA = lua # Usually called lua or lua54
+
 
 MKDIR = mkdir
 
 # If you're on \\Linux\\, use 
-# RM = rm -f "${OBJDIR}/*.o" "${OUTDIR}/*.dll"
+RM = rm -f "${OBJDIR}/*.o" "${OUTDIR}/*.dll"
 
 # If you're on \\Windows\\ instead, use the following defintion
-define RM
-del /q "${OBJDIR}\*.o"
-del /q "${OUTDIR}\*.dll"
-endef
+# define RM
+# del /q "${OBJDIR}\*.o"
+# del /q "${OUTDIR}\*.dll"
+# endef
 
 # If you have Ultimate Packer for eXecutables (UPX), uncomment the following line
-UPX = upx --best --lzma "${OUTDIR}/lib.dll"
+# UPX = upx --best --lzma "${OUTDIR}/lib.dll"
+# Works better on Windows
 
 OUTDIR = .
 OBJDIR = obj
 
-CFLAGS = -std=c17 -Wall -Wextra -O2 -I${LUASRCDIR} -c
-OFLAGS = -shared -L${LUASRCDIR} -l${LIBLUA} -s 
+CFLAGS = -std=c17 -fPIC -Wall -Wextra -O2 -I${LUASRCDIR} -c
+OFLAGS = -shared -L${LUASRCDIR} -l${LIBLUA} -s
 
 all: ${OUTDIR} ${OUTDIR}/lib.dll compress
 redo: clean all
