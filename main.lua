@@ -1,12 +1,12 @@
-local bindir = "./pi_libraries/bin"
-package.cpath= bindir .. "/?.dll;"
+local BIN = "./bin"
+package.cpath= BIN .. "/?.dll;"
 
-local libpath = bindir .. '/libraries.dll'
-local waitFunction = package.loadlib(libpath, "waitFunction"))
-local supportsVTProcessing = package.loadlib(libpath, "supportsVTProcessing"))
-local getPi = package.loadlib(libpath, "getPi"))
+local LIB = BIN .. '/lib.dll'
+local wait = package.loadlib(LIB, "luaopen_waitFunction")()
+local supportsVTProcessing = package.loadlib(LIB, "luaopen_supportsVTProcessing")()
+local pi = package.loadlib(LIB, "luaopen_getPi")()
+BIN, LIB = nil
 
-os.exit()
 local package = package
 local system = os.execute
 local w = io.write
@@ -30,7 +30,7 @@ end
 
 local cls, typeFmt
 
-if supportsColor then 
+if supportsVTProcessing then 
     cls = function()
         write("\27[H\27[J\27[H")
         flush()
