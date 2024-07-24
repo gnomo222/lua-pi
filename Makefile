@@ -1,53 +1,52 @@
-CC = gcc
+CC = gcc -std=c17
 
 # Put your own lua src directory and lib path here
-LUASRCDIR = #../lua-5.4.6/src
-LIBLUA = lua # Usually called lua or lua54
+LUASRCDIR = ../lua-5.4.7/src
+# Lib is usually called lua for Linux or lua54 for Windows
+LIBLUA = lua54
 
 
-MKDIR = mkdir
-
-# If you're on \\Linux\\, use 
-RM = rm -f "${OBJDIR}/*.o" "${OUTDIR}/*.dll"
-
-# If you're on \\Windows\\ instead, use the following defintion
-# define RM
-# del /q "${OBJDIR}\*.o"
-# del /q "${OUTDIR}\*.dll"
-# endef
+# List of plats: linux windows.
+plat = undefined
 
 # If you have Ultimate Packer for eXecutables (UPX), uncomment the following line
-# UPX = upx --best --lzma "${OUTDIR}/lib.dll"
+# UPX = upx --best --lzma "${OUTDIR}/lib${EXT}"
 # Works better on Windows
 
-OUTDIR = .
-OBJDIR = obj
+FILES = getPi supportsVTProcessing waitFunction getUserInput
+CNAMES = $(FILES:%=%.c)
+ONAMES = $(FILES:%=%.o)
 
 CFLAGS = -std=c17 -fPIC -Wall -Wextra -O2 -I${LUASRCDIR} -c
 OFLAGS = -shared -L${LUASRCDIR} -l${LIBLUA} -s
 
-all: ${OUTDIR} ${OUTDIR}/lib.dll compress
+define n
+
+
+endef
+
+.PHONY: all redo undefined linux windows clean
+all: ${plat} ${CNAMES}
+	$(foreach name,${CNAMES},${CC} ${CFLAGS} ${name} -o $(name:%.c=%.o)$n)
+	${CC} ${OFLAGS} ${ONAMES} -o lib${EXT}
+ifdef UPX
+	${UPX}
+endif
+
 redo: clean all
 
-${OUTDIR}/lib.dll: ${OBJDIR}/getPi.o ${OBJDIR}/supportsVTProcessing.o ${OBJDIR}/waitFunction.o
-	${CC} ${OFLAGS} $^ -o $@
+undefined:
+	$(error Please, change the variable 'plat' to 'windows' or 'linux')
 
-${OBJDIR}/getPi.o: getPi.c ${OBJDIR}
-	${CC} ${CFLAGS} $< -o $@
-${OBJDIR}/supportsVTProcessing.o: supportsVTProcessing.c ${OBJDIR}
-	${CC} ${CFLAGS} $< -o $@
-${OBJDIR}/waitFunction.o: waitFunction.c ${OBJDIR}
-	${CC} ${CFLAGS} $< -o $@
+linux:
+	$(eval EXT = .so)
+	$(eval RM = rm -f "${OBJDIR}/*.o" "${OUTDIR}/*${EXT}")
+	
+windows:
+	$(eval EXT := .dll)
+	$(eval RM := del /q)
+	$(eval CC += -D__USE_MINGW_ANSI_STDIO)
 
-${OBJDIR}:
-	${MKDIR} ${OBJDIR}
 
-${OUTDIR}:
-	${MKDIR} ${OUTDIR}
-
-compress:
-	${UPX}
-
-.PHONY: clean
-clean:
-	${RM}
+clean: ${plat}
+	${RM} "./*.o" "./lib${EXT}"

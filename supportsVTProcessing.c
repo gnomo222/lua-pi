@@ -1,6 +1,7 @@
-#ifndef SUPPORTSVTPROCESSING_H
-#define SUPPORTSVTPROCESSING_H
 #ifdef _WIN64
+#	ifndef ENABLE_VIRTUAL_TERMINAL_PROCESSING
+		#define ENABLE_VIRTUAL_TERMINAL_PROCESSING 0x0004
+#	endif
     #include <wchar.h>
     #include <windows.h>
 #endif
@@ -21,4 +22,3 @@ int luaopen_supportsVTProcessing(lua_State *L)
     lua_pushboolean(L, ret);
     return 1;
 }
-#endif

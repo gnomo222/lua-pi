@@ -5,12 +5,13 @@ local LIB = BIN .. '/lib.dll'
 local wait = package.loadlib(LIB, "luaopen_waitFunction")()
 local supportsVTProcessing = package.loadlib(LIB, "luaopen_supportsVTProcessing")()
 local pi = package.loadlib(LIB, "luaopen_getPi")()
+local read = package.loadlib(LIB, "luaopen_getUserInput")()
 BIN, LIB = nil
 
 local package = package
 local system = os.execute
 local w = io.write
-local read = io.read
+local open = io.open
 local flush = io.flush
 local string = string
 
@@ -39,7 +40,7 @@ if supportsVTProcessing then
     typeFmt = 'Type \27[4;31;107m%d\27[0;30;107m digits of pi: '
 else 
     cls = function() system("cls") end
-    typeText = 'Type %d digits of pi: '
+    typeFmt = 'Type %d digits of pi: '
 end
 
 
@@ -90,6 +91,12 @@ local function defaultize(str)
     return str:gsub("[^%d]", "")
 end
 
+local function save()
+	saveFile = open("save", "w+")
+    saveFile:write(score-2)
+    saveFile:flush()
+end
+
 while true do
     cls()
     local piSubstring = pi:sub(1, score)
@@ -105,14 +112,11 @@ while true do
     if defaultize(input):sub(1, score-1) == defaultize(piSubstring) then
         score = score+1
     elseif score>4 then score=score-1 end
-    saveFile = io.open("save", "w+")
-    saveFile:write(score-2)
-    saveFile:flush()
+    save()
 end
 
 ::EOF::
 write("\27[0m")
 cls()
-saveFile = io.open("save", "w+")
-saveFile:write(score-2)
+save()
 saveFile:close()
